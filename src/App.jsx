@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import logo from './images/logo.png';
 
@@ -48,9 +49,12 @@ function Main({menuItems}) {
 
 
 function App() {
-
+  const [status, setStatus] = useState(true);
+  console.log(status);
   return (
     <div>
+      <h4>Status: {status ? "open" : "close"}</h4>
+      <button onClick={() => setStatus(!status)}>{status ? "Close" : "Open"} Shop</button>
       <Header name="aniket meena" year={new Date().getFullYear()} />
       <Main menuItems={menuObj}/>
       <main>
